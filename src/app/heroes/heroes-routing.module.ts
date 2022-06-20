@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AgregarComponent } from './pages/agregar/agregar.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { HeroeComponent } from './pages/heroe/heroe.component';
+import { HomeComponent } from './pages/home/home.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: HomeComponent, // componente principal o ruta padre
+    // rutas hijas del HomeComponent, se van a desplegar dependiendo del path donde se encuentre mediante outer-outlet
     children: [
       {
         path: 'listado',
