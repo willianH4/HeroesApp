@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+      <mat-card-title>{{ heroe.superhero }}</mat-card-title>
+      <mat-card-subtitle>{{ heroe.alter_ego }}</mat-card-subtitle>
+  </mat-card-header>
+  <img matCardImage [src]="heroe | imagen">
+  <mat-card-content>
+      {{ heroe.publisher }}
+      <p>
+        <strong>Primera aparicion: {{heroe.first_appearance}}</strong>
+        <br>
+        <strong>Personajes: {{ heroe.characters }}</strong>
+      </p>
+  </mat-card-content>
+  <mat-card-actions align="start">
+      <button mat-button color="warn" [routerLink]="['/heroes', heroe.id]">Leer mas ...</button>
+      <button mat-button color="info" [routerLink]="['/heroes/editar', heroe.id]">Editar</button>
+  </mat-card-actions>
+  <mat-card-footer>
+      Footer
+  </mat-card-footer>
+</mat-card>
