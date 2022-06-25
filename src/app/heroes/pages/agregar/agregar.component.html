@@ -1,1 +1,66 @@
-<p>agregar works!</p>
+<h1>{{ ( heroe.id ) ? 'Editar' : 'Nuevo' }}
+  Heroe <small>{{ heroe.superhero }}</small></h1>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+  <div fxFlex="50" fxLayout="column">
+
+    <div fxLayout="row" fxLayout.xs="column"  fxLayoutGap="20px">
+      <mat-form-field fxFlex="100">
+        <mat-label>Super Heroe</mat-label>
+        <input [(ngModel)]="heroe.superhero" matInput required type="text">
+      </mat-form-field>
+
+      <mat-form-field fxFlex="100">
+        <mat-label>Alter Ego</mat-label>
+        <input [(ngModel)]="heroe.alter_ego" matInput required type="text">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Primera Aparicion</mat-label>
+      <input [(ngModel)]="heroe.first_appearance" matInput required type="text">
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Personajes</mat-label>
+      <input [(ngModel)]="heroe.characters" matInput required type="text">
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Creador</mat-label>
+      <mat-select [(ngModel)]="heroe.publisher"  placeholder="" required>
+          <mat-option [value]="publisher.id" *ngFor="let publisher of publishers">
+            {{ publisher.desc }}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Foto url</mat-label>
+      <input [(ngModel)]="heroe.alt_img" matInput required type="url">
+    </mat-form-field>
+
+    <br>
+
+    <div fxLayout>
+      <button mat-raised-button color="primary" (click)="guardar()">
+        <mat-icon class="mat-18">save</mat-icon>
+        {{ ( heroe.id ) ? 'Actualizar' : 'Guardar' }}
+      </button>
+
+      <span class="spacer"></span>
+
+      <button *ngIf="heroe.id" mat-raised-button color="warn" (click)="borrarHeroe()">
+        <mat-icon class="mat-18">delete</mat-icon>
+        Eliminar
+      </button>
+    </div>
+
+  </div>
+
+  <div fxFlex="50">
+    <img [src]="heroe | imagen" alt="Imagen del heroe">
+  </div>
+
+</div>

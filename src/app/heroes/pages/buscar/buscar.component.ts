@@ -11,7 +11,7 @@ import { HeroesService } from '../../services/heroes.service';
 })
 export class BuscarComponent implements OnInit {
 
-  termino: string = "";
+  termino: string = '';
   heroes: Heroe[] = [];
   heroeSeleccionado!: Heroe | undefined | null;
 
